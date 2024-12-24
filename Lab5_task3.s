@@ -1,14 +1,31 @@
 .data
 array: .word 4,1,3,5,2,6
-size: .word 6 
+size: .word 6
 
 .text
 main:
     la a0, array
     lw a1, size
     jal ra, bubbleSort
+    
     li a0, 1
+    la t0, array
+    lw a1, 0(t0)
     ecall
+    lw a1, 4(t0)
+    ecall
+    lw a1, 8(t0)
+    ecall
+    lw a1, 12(t0)
+    ecall
+    lw a1, 16(t0)
+    ecall
+    lw a1, 20(t0)
+    ecall
+    
+    li a0, 10 # exit call
+    ecall
+    
 bubbleSort:
     addi t0, x0, 0 #i = 0
 outer_loop:
